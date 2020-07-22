@@ -1,0 +1,17 @@
+﻿using System;
+
+namespace GreenVsRed.IO
+{
+    class ConsoleIOHandler : IIOHandler
+    {
+        public string Read()
+        {
+            return Console.ReadLine();
+        }
+
+        public void Write(string str)
+        {
+            Console.WriteLine(str);
+        }
+    }
+}
