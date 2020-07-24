@@ -21,8 +21,15 @@ namespace GreenVsRed
 
         public int Value { get; set; }
 
+        /// <summary>
+        /// Holds the count of red and green neighbouring cells of the current cell.
+        /// </summary>
         public Dictionary<int, int> Neighbours { get; }
 
+        /// <summary>
+        /// Calculates how many red and green neighbouring cells the current cell has.
+        /// </summary>
+        /// <param name="currentGen">The GameState instance that represents the current generation.</param>
         public void CalculateNeighbours(GameState currentGen)
         {
             int startPosX = (this.XCoord - 1 < 0) ? this.XCoord : this.XCoord - 1;

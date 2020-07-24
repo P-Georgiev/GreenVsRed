@@ -11,6 +11,11 @@ namespace GreenVsRed
 
         public GameState CurrentGen { get; set; }
 
+        /// <summary>
+        /// Calculates and returns the state of the next generation.
+        /// </summary>
+        /// <param name="nextGen">The GameState instance that represents the next generation.</param>
+        /// <returns></returns>
         public GameState CalculateNextGen(GameState nextGen)
         {
             for (int i = 0; i < this.CurrentGen.Height; i++)
@@ -25,6 +30,14 @@ namespace GreenVsRed
             return nextGen;
         }
 
+        /// <summary>
+        /// Calculates and returns the value the current cell will have in the next generation.
+        /// </summary>
+        /// <param name="nextGen">The Cell[,] instance that represents the next generation.</param>
+        /// <param name="x">The int that represents the x coodrinate of the current cell.</param>
+        /// <param name="y">The int that represents the y coodrinate of the current cell.</param>
+        /// <param name="neighbours">The Dictionary<int, int> instance that represents the neighbours of the current cell.</param>
+        /// <returns></returns>
         private int GetCellValueInNextGen(Cell[,] nextGen, int x, int y, Dictionary<int, int> neighbours)
         {
             if (this.CurrentGen.Grid[x, y].Value == 0 && (neighbours[1] == 3 || neighbours[1] == 6))
@@ -39,7 +52,7 @@ namespace GreenVsRed
             {
                 nextGen[x, y].Value = 1;
             }
-             
+
             return nextGen[x, y].Value;
         }
     }

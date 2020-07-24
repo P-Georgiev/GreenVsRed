@@ -46,12 +46,15 @@ namespace GreenVsRed
                 string[] dimensions = this.iOHandler.Read().Split(", ");
                 width = int.Parse(dimensions[0]);
                 height = int.Parse(dimensions[1]);
-
             } while (width > height || height >= 1000);
 
             return new int[] { height, width };
         }
 
+        /// <summary>
+        /// Sets the values of each cell in "Generation Zero".
+        /// </summary>
+        /// <param name="game">The Game instance that represents the game GreenVsRed</param>
         public void PopulateInitialState(Game game)
         {
             for (int row = 0; row < game.CurrentGen.Height; row++)
@@ -65,6 +68,14 @@ namespace GreenVsRed
             }
         }
 
+        /// <summary>
+        /// Calculates and returns in how many generations the target cell value was green.
+        /// </summary>
+        /// <param name="game">The Game instance that represents the game GreenVsRed</param>
+        /// <param name="x">The int that represents the x coodrinate of the target cell.</param>
+        /// <param name="y">The int that represents the y coodrinate of the target cell.</param>
+        /// <param name="n">The int that represents the number of generations that are calculated.</param>
+        /// <returns></returns>
         public int GetTargetCellGreenStateCount(Game game, int x, int y, int n)
         {
             int count = 0;

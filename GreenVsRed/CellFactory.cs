@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GreenVsRed
+﻿namespace GreenVsRed
 {
     public class CellFactory : ICellFactory
     {
